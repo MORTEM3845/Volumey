@@ -1,0 +1,40 @@
+{
+  "Monitor": "DISPLAY1",
+  "WorkArea": {
+    "X": 0,
+    "Y": 0,
+    "Width": 1920,
+    "Height": 1040
+  },
+  "Before": {
+    "X": 1450,
+    "Y": 458,
+    "Width": 460,
+    "Height": 572,
+    "Right": 1910,
+    "Bottom": 1030
+  },
+  "After": {
+    "X": 1450,
+    "Y": 458,
+    "Width": 460,
+    "Height": 572,
+    "Right": 1910,
+    "Bottom": 1030
+  },
+  "Settings": {
+    "PopupMode": false,
+    "AlwaysOnTop": false,
+    "DeviceViewAtTheBottom": false,
+    "ShowDevicePicker": true,
+    "DisplayDeviceIconAtTray": false,
+    "RememberPosition": true,
+    "PopupLeft": null,
+    "PopupTop": null,
+    "Left": 1450.0,
+    "Top": 458.0,
+    "Width": 460.0,
+    "Height": 572.0,
+    "ScreenName": null
+  }
+}
