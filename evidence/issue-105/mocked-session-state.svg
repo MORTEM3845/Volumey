@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="680" viewBox="0 0 1120 680">
+<defs><style>
+.bg{fill:#101820}.panel{fill:#1b2834;stroke:#34495b;stroke-width:2}.card{fill:#263746}.title{font:700 28px Segoe UI,Arial;fill:#f4f7fa}.sub{font:600 18px Segoe UI,Arial;fill:#a8bac9}.label{font:600 16px Segoe UI,Arial;fill:#dce6ef}.small{font:14px Segoe UI,Arial;fill:#a8bac9}.value{font:700 16px Segoe UI,Arial;fill:#fff}.before{fill:#ffcf70}.after{fill:#83d6a4}.track{fill:#405365}.fill{fill:#66a9e9}.pill{fill:#17232d;stroke:#34495b;stroke-width:1}
+</style></defs>
+<rect class="bg" width="1120" height="680" rx="20"/>
+<text class="title" x="40" y="52">Issue 105 · App group volume with two mocked sessions</text>
+<text class="small" x="40" y="82">Isolated illustration of the slider behavior; no Windows audio session is connected.</text>
+<rect class="panel" x="32" y="112" width="512" height="530" rx="14"/>
+<rect class="panel" x="576" y="112" width="512" height="530" rx="14"/>
+<text class="sub before" x="60" y="153">BEFORE · app slider change</text>
+<text class="sub after" x="604" y="153">AFTER · group then individual change</text>
+<text class="label" x="60" y="200">Example App</text><text class="small" x="60" y="224">App slider · 70</text>
+<rect class="track" x="60" y="239" width="390" height="12" rx="6"/><rect class="fill" x="60" y="239" width="273" height="12" rx="6"/>
+<rect class="card" x="60" y="276" width="456" height="126" rx="10"/><text class="label" x="82" y="309">Session 1</text><text class="value" x="470" y="309" text-anchor="end">70</text><rect class="track" x="82" y="333" width="390" height="10" rx="5"/><rect class="fill" x="82" y="333" width="273" height="10" rx="5"/><text class="small" x="82" y="378">Moved with the app slider</text>
+<rect class="card" x="60" y="418" width="456" height="126" rx="10"/><text class="label" x="82" y="451">Session 2</text><text class="value" x="470" y="451" text-anchor="end">50</text><rect class="track" x="82" y="475" width="390" height="10" rx="5"/><rect class="fill" x="82" y="475" width="195" height="10" rx="5"/><text class="small" x="82" y="520">Unaffected · defect</text>
+<rect class="pill" x="60" y="567" width="456" height="42" rx="10"/><text class="small" x="82" y="593">Main slider reaches only the first session</text>
+<text class="label" x="604" y="200">Example App</text><text class="small" x="604" y="224">App slider · 70 (group setting)</text>
+<rect class="track" x="604" y="239" width="390" height="12" rx="6"/><rect class="fill" x="604" y="239" width="273" height="12" rx="6"/>
+<rect class="card" x="604" y="276" width="456" height="126" rx="10"/><text class="label" x="626" y="309">Session 1</text><text class="value" x="1014" y="309" text-anchor="end">70</text><rect class="track" x="626" y="333" width="390" height="10" rx="5"/><rect class="fill" x="626" y="333" width="273" height="10" rx="5"/><text class="small" x="626" y="378">Set by app group slider</text>
+<rect class="card" x="604" y="418" width="456" height="126" rx="10"/><text class="label" x="626" y="451">Session 2</text><text class="value" x="1014" y="451" text-anchor="end">35</text><rect class="track" x="626" y="475" width="390" height="10" rx="5"/><rect class="fill" x="626" y="475" width="137" height="10" rx="5"/><text class="small" x="626" y="520">Then adjusted individually · session 1 stays 70</text>
+<rect class="pill" x="604" y="567" width="456" height="42" rx="10"/><text class="small" x="626" y="593">Group action updates all; child action stays local</text>
+</svg>
