@@ -173,5 +173,43 @@
                                  AutomationProperties.Name="{lc:Localization MixerPage_Sync}"
                                  AutomationProperties.AutomationId="SyncToggle" />
             </ui:CardControl>
+
+            <TextBlock Text="{lc:Localization MixerPage_VolumePresets}" Style="{StaticResource SectionHeader}" />
+            <ui:CardControl Icon="{ui:SymbolIcon Speaker124}">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="{lc:Localization MixerPage_VolumePresets}" />
+                        <TextBlock Text="{lc:Localization MixerPage_VolumePresetsHint}" Style="{StaticResource Caption}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <StackPanel>
+                    <ItemsControl ItemsSource="{Binding VolumePresets}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0 2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="90" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                             Margin="0 0 8 0"
+                                             LostFocus="PresetEdited"
+                                             AutomationProperties.Name="{lc:Localization MixerPage_PresetName}" />
+                                    <ui:NumberBox Grid.Column="1" Minimum="0" Maximum="100" MaxDecimalPlaces="0"
+                                                  Value="{Binding Volume, UpdateSourceTrigger=PropertyChanged}"
+                                                  LostFocus="PresetEdited"
+                                                  AutomationProperties.Name="{lc:Localization MixerPage_PresetVolume}" />
+                                    <ui:Button Grid.Column="2" Content="×" Padding="8 0"
+                                               Command="{Binding DataContext.RemovePresetCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                               CommandParameter="{Binding}"
+                                               AutomationProperties.Name="{lc:Localization MixerPage_RemovePreset}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <ui:Button Content="{lc:Localization MixerPage_AddPreset}" Command="{Binding AddPresetCommand}" Margin="0 8 0 0" />
+                </StackPanel>
+            </ui:CardControl>
         </StackPanel>
 </Page>

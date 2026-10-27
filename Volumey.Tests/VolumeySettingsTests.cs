@@ -55,6 +55,25 @@ public class VolumeySettingsTests
 	}
 
 	[TestMethod]
+	public void VolumePresetsShouldPersistAsEditableNamedValues()
+	{
+		var settings = Load().EnableAutosave();
+		settings.General.VolumePresets = new List<VolumePreset>
+		{
+			new VolumePreset { Name = "Quiet", Volume = 15 },
+			new VolumePreset { Name = "Party", Volume = 80 }
+		};
+		settings.Flush();
+
+		var presets = Load().General.VolumePresets;
+		Assert.AreEqual(2, presets.Count);
+		Assert.AreEqual("Quiet", presets[0].Name);
+		Assert.AreEqual(15, presets[0].Volume);
+		Assert.AreEqual("Party", presets[1].Name);
+		Assert.AreEqual(80, presets[1].Volume);
+	}
+
+	[TestMethod]
 	public void FileShouldStoreEnumsAndHotkeysByName()
 	{
 		var settings = Load().EnableAutosave();

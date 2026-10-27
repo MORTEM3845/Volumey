@@ -147,6 +147,15 @@
                         Style="{StaticResource VolumeValue}"
                         Text="{Binding SelectedDevice.Master.Volume}" />
                 </Grid>
+                <StackPanel Orientation="Horizontal" Margin="36 8 0 0"
+                            DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext}">
+                    <ComboBox Width="160" ItemsSource="{Binding VolumePresets, RelativeSource={RelativeSource AncestorType=Window}}"
+                              SelectedItem="{Binding SelectedPreset, RelativeSource={RelativeSource AncestorType=Window}}"
+                              DisplayMemberPath="Name" AutomationProperties.Name="{lc:Localization MixerPage_VolumePresets}" />
+                    <ui:Button Content="{lc:Localization MixerPage_ApplyPreset}"
+                               Command="{Binding ApplyPresetCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                               Margin="8 0 0 0" />
+                </StackPanel>
             </StackPanel>
         </DataTemplate>
 

@@ -57,6 +57,14 @@ public class MasterSessionModelTests
 	}
 
 	[TestMethod]
+	public void ApplyingPresetVolumeWritesOnlyThroughInjectedVolumeEndpoint()
+	{
+		model.Volume = 15;
+		sessionVolumeMock.Verify(m => m.SetVolume(15, It.IsAny<Guid>()), Times.Once);
+		Assert.AreEqual(15, model.Volume);
+	}
+
+	[TestMethod]
 	public void MuteStateMustChange()
 	{
 		var newMuteState = !model.IsMuted;

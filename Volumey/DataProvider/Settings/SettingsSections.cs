@@ -1,6 +1,7 @@
 #nullable enable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Nucs.JsonSettings.NotifyChanges;
 using Volumey.Controls;
 
@@ -15,10 +16,25 @@ public sealed class GeneralSettings : SettingsSection
 	public int VolumeStep { get; set; } = 1;
 	public bool VolumeLimitEnabled { get; set; }
 	public int VolumeLimit { get; set; } = 50;
+	public IReadOnlyList<VolumePreset> VolumePresets { get; set; } = new List<VolumePreset>
+	{
+		new() { Name = "Quiet", Volume = 15 },
+		new() { Name = "Half", Volume = 50 }
+	};
 	public bool AppVolumeSyncEnabled { get; set; }
 	/// <summary>Localized name of the system sounds session and the system language it was resolved for.</summary>
 	public string? SystemSoundsName { get; set; }
 	public string? SystemSoundsLanguage { get; set; }
+}
+
+public sealed class VolumePreset : INotifyPropertyChanged
+{
+	private string name = string.Empty;
+	private int volume;
+	public string Name { get => name; set { if(name != value) { name = value; OnPropertyChanged(nameof(Name)); } } }
+	public int Volume { get => volume; set { int clamped = Math.Clamp(value, 0, 100); if(volume != clamped) { volume = clamped; OnPropertyChanged(nameof(Volume)); } } }
+	public event PropertyChangedEventHandler? PropertyChanged;
+	private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }
 
 [NotifyChanges]
